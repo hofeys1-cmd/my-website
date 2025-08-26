@@ -1,12 +1,25 @@
 body {
-    font-family: Tahoma, sans-serif;
-    background-color: #f0f0f0;
-    text-align: center;
-    padding-top: 50px;
+  font-family: "Vazirmatn", sans-serif;
+  margin: 0;
+  background: #0f172a;
+  color: #e2e8f0;
 }
-h1 {
-    color: #2c3e50;
+header {
+  background: #0b1222;
+  padding: 1rem;
 }
-p {
-    color: #555;
+nav button {
+  background: #13203e;
+  color: #e2e8f0;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0.2rem;
+  cursor: pointer;
 }
+nav button.active {
+  background: #22d3ee;
+  color: #002;
+}
+.tab-content { display: none; padding: 1rem; }
+.tab-content.active { display: block; }
+.admin-only { background: #22d3ee; color: #002; border: none; padding: 0.5rem 1rem; cursor: pointer; }
