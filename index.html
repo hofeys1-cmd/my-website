@@ -1,12 +1,79 @@
-<!DOCTYPE html>
-<html lang="fa">
+<!doctype html>
+<html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <title>سایت من</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>مدیریت HSE پیمانکاران</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vazirmatn@33.0.3/Vazirmatn-font-face.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/persian-datepicker@1.2.0/dist/css/persian-datepicker.min.css">
 </head>
 <body>
-    <h1>سلام دنیا! 👋</h1>
-    <p>این اولین سایت من با GitHub Pages است.</p>
+  <header>
+    <h1>مدیریت HSE پیمانکاران</h1>
+    <nav>
+      <button data-tab="dashboard" class="active">داشبورد</button>
+      <button data-tab="contractors">پیمانکاران</button>
+      <button data-tab="events">رویدادها</button>
+      <button data-tab="compliance">جریمه و عدم انطباق</button>
+      <button data-tab="reports">گزارش‌ها</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="dashboard" class="tab-content active">
+      <h2>نمای کلی</h2>
+      <div id="stats"></div>
+    </section>
+
+    <section id="contractors" class="tab-content">
+      <h2>ثبت پیمانکار</h2>
+      <form id="contractorForm">
+        <label>نام شرکت <input name="name" required></label>
+        <label>سال تاسیس <input name="year" type="number"></label>
+        <label>مدیرعامل <input name="ceo"></label>
+        <button type="submit" class="admin-only">ثبت</button>
+      </form>
+      <div id="contractorList"></div>
+    </section>
+
+    <section id="events" class="tab-content">
+      <h2>ثبت رویداد</h2>
+      <form id="eventForm">
+        <label>پیمانکار <select name="contractor"></select></label>
+        <label>نوع رویداد
+          <select name="type">
+            <option>حادثه</option>
+            <option>شبه حادثه</option>
+            <option>بیماری</option>
+          </select>
+        </label>
+        <label>تاریخ وقوع <input name="date" class="jdate"></label>
+        <button type="submit" class="admin-only">ثبت</button>
+      </form>
+      <div id="eventList"></div>
+    </section>
+
+    <section id="compliance" class="tab-content">
+      <h2>ثبت جریمه / عدم انطباق</h2>
+      <form id="fineForm">
+        <label>پیمانکار <select name="contractor"></select></label>
+        <label>شماره جریمه <input name="no"></label>
+        <button type="submit" class="admin-only">ثبت جریمه</button>
+      </form>
+      <div id="complianceList"></div>
+    </section>
+
+    <section id="reports" class="tab-content">
+      <h2>گزارش‌ها</h2>
+      <button onclick="window.print()">چاپ / PDF</button>
+      <div id="reportArea"></div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/persian-date@1.1.0/dist/persian-date.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/persian-datepicker@1.2.0/dist/js/persian-datepicker.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
